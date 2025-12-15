@@ -1,0 +1,342 @@
+:root {
+    --bg: #ffffff;
+    --muted: #8a8a8a;
+    --card: #f7f8fb;
+    --accent: #4C7CF5;
+    --text: #111827;
+    --radius: 12px;
+    --glass: rgba(0, 0, 0, 0.04);
+    --gap: 16px;
+
+    /* Candy Crush цвета */
+    --red: #f44336;
+    --green: #4caf50;
+    --blue: #2196f3;
+    --yellow: #ffeb3b;
+    --purple: #9c27b0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    padding: 28px;
+}
+
+.app {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 24px;
+    align-items: start;
+}
+
+header {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.sub {
+    color: var(--muted);
+    font-size: 13px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Стилизация выпадающего меню */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px 40px 10px 14px;
+    border-radius: var(--radius);
+    border: 1px solid #eaeaea;
+    background-color: white;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><polygon points="0,0 12,0 6,6" fill="%238a8a8a"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(76,124,245,0.2);
+}
+
+select option {
+    padding: 8px;
+}
+
+
+/* Панели */
+.panel {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: 0 2px 10px var(--glass);
+}
+
+.left, .right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Задачи */
+.add-row {
+    display: flex;
+    gap: 8px;
+}
+
+.add-row input, .add-row select {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #eaeaea;
+    font-size: 14px;
+}
+
+.add-row input {
+    flex: 1;
+    background: white;
+}
+.add-row select {
+    background: white;
+}
+
+.btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn.plain {
+    background: white;
+    color: var(--text);
+    border: 1px solid #eaeaea;
+}
+
+.btn.muted {
+    background: #777;
+}
+.btn.dark {
+    background: #2b2b2b;
+}
+
+.controls-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    align-items: center;
+}
+
+.list {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 320px;
+    overflow: auto;
+}
+
+.task {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: white;
+}
+
+.day-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task .meta { 
+    font-size: 13px;
+    color: var(--muted);
+}
+.task .title {
+    flex: 1;
+}
+
+.bottom-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    align-items: center;
+}
+
+/* Таймер */
+.timer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.circle {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: white;
+    box-shadow: 0 6px 24px rgba(10, 10, 20, 0.06);
+    margin: 12px auto;
+}
+
+.time {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.timer-settings {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#modeLabel { 
+    text-align: center;
+}
+
+.games-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.game-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.game-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--glass);
+}
+.game-card .hint {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Модал */
+.overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 999;
+}
+
+.modal {
+    width: 760px;
+    max-width: 92%;
+    max-height: 92%;
+    overflow: auto;
+    border-radius: var(--radius);
+}
+
+/* Candy Crush */
+#candyGrid {
+    display: grid;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#candyGrid div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transform: translateY(-100px);
+    opacity: 0;
+}
+
+/* Конфеты с градиентами */
+.candy-red { 
+    background: linear-gradient(145deg, #ff5f5f, #f44336);
+    box-shadow: 0 2px 6px rgba(244, 67, 54, 0.6);
+}
+.candy-green { 
+    background: linear-gradient(145deg, #80e27e, #4caf50);
+    box-shadow: 0 2px 6px rgba(76, 175, 80, 0.6);
+}
+.candy-blue { 
+    background: linear-gradient(145deg, #64b5f6, #2196f3);
+    box-shadow: 0 2px 6px rgba(33, 150, 243, 0.6);
+}
+.candy-yellow { 
+    background: linear-gradient(145deg, #fff176, #ffeb3b); 
+    box-shadow: 0 2px 6px rgba(255, 235, 59, 0.6);
+}
+.candy-purple { 
+    background: linear-gradient(145deg, #ce93d8, #9c27b0); 
+    box-shadow: 0 2px 6px rgba(156, 39, 176, 0.6);
+}
+
+#candyGrid div:hover {
+    transform: scale(1.2) rotate(-5deg);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Адаптив */
+@media(max-width:980px) {
+    .app { 
+        grid-template-columns: 1fr;
+        padding-bottom: 60px;
+    }
+    .right {
+        order: 2;
+    }
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Task Flow</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <header>
+            <div>
+                <h1>Task Flow</h1>
+                <div class="sub">Планировщик • Таймер • Игры для перерывов</div>
+            </div>
+            <div class="auth-buttons">
+                <button id="loginBtn" class="btn plain">Вход</button>
+                <button id="registerBtn" class="btn plain">Регистрация</button>
+            </div>
+        </header>
+
+        <!-- Левая часть -->
+        <main class="left">
+            <section class="panel tasks-panel">
+                <h2>Задачи</h2>
+                <div class="add-row">
+                    <input id="taskInput" placeholder="Добавить задачу... (Enter)" />
+                    <select id="taskTag">
+                        <option value="">— тег —</option>
+                        <option>Работа</option>
+                        <option>Дом</option>
+                        <option>Учёба</option>
+                    </select>
+                    <button id="addBtn" class="btn">Добавить</button>
+                </div>
+
+
+            </section>
+
+            <section class="panel planner-panel">
+                <h2>План на день</h2>
+
+                <div class="controls-row">
+                    <label><input type="checkbox" id="showDone" /> Показать выполненные</label>
+                    <select id="filterTag">
+                        <option value="all">Все теги</option>
+                        <option>Работа</option>
+                        <option>Дом</option>
+                        <option>Учёба</option>
+                    </select>
+                </div>
+
+                <div class="bottom-row">
+                    <button id="exportBtn" class="btn dark">Экспорт</button>
+                    <button id="clearBtn" class="btn plain">Очистить всё</button>
+                </div>
+
+                <div id="tasksList" class="list"></div>
+
+                <div class="day-grid" id="dayGrid">
+                    <!-- задачи будут тут -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Правая часть -->
+        <aside class="right">
+            <section class="panel timer-panel">
+                <div class="timer-header">
+                    <h2>Таймер</h2>
+                    <div class="sub">Выбери режим</div>
+                </div>
+
+                <div class="circle">
+                    <div>
+                        <div id="timerDisplay" class="time">50:00</div>
+                        <div id="modeLabel" class="sub">Работа</div>
+                    </div>
+                </div>
+
+                <div class="timer-controls">
+                    <button id="startBtn" class="btn">Старт</button>
+                    <button id="pauseBtn" class="btn muted">Пауза</button>
+                    <button id="resetBtn" class="btn plain">Сброс</button>
+                </div>
+
+                <div class="timer-settings">
+                    <select id="preset">
+                        <option value="50">Работа</option>
+                        <option value="15">Перерыв</option>
+                    </select>
+                    <label class="small">Авто-пауза <input type="checkbox" id="autoBreak" checked /></label>
+                </div>
+            </section>
+
+            <section class="panel games-panel">
+                <div class="games-header">
+                    <h2>Игры</h2>
+                    <div class="sub">Быстрые перерывы</div>
+                </div>
+                <div class="games-list">
+                    <div class="game-card" data-game="candy">Candy Crush <span class="hint">мини-игра</span></div>
+                    <div class="game-card" data-game="bases">Тренажёр систем счисления <span class="hint">в десятичную</span></div>
+                </div>
+            </section>
+        </aside>
+
+    </div>
+
+    <!-- Modal / Game container -->
+    <div id="overlay" class="overlay" aria-hidden="true">
+        <div id="modalContent" class="modal panel" role="dialog" aria-modal="true"></div>
+    </div>
+</body>
+
+</html>
